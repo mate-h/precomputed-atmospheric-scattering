@@ -27,10 +27,10 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 GPP := g++
-GPP_FLAGS := -Wall -Wmain -pedantic -pedantic-errors -std=c++11
+GPP_FLAGS := -Wall -Wmain -Wdeprecated-declarations -pedantic -pedantic-errors -std=c++11
 INCLUDE_FLAGS := \
     -I. -Iexternal -Iexternal/dimensional_types -Iexternal/glad/include \
-    -Iexternal/progress_bar
+    -Iexternal/progress_bar -ldl -lglut -lGL
 DEBUG_FLAGS := -g
 RELEASE_FLAGS := -DNDEBUG -O3 -fexpensive-optimizations
 

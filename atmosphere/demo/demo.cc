@@ -40,7 +40,7 @@ independent of our atmosphere model. The only part which is related to it is the
 #include "atmosphere/demo/demo.h"
 
 #include <glad/glad.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 
 #include <algorithm>
 #include <cmath>
@@ -121,7 +121,8 @@ Demo::Demo(int viewport_width, int viewport_height) :
     throw std::runtime_error("GLAD initialization failed");
   }
   if (!GLAD_GL_VERSION_3_3) {
-    throw std::runtime_error("OpenGL 3.3 or higher is required");
+    std::string versionStr = (const char*)glGetString(GL_VERSION);
+    throw std::runtime_error("OpenGL 3.3 or higher is required. Current version: " + versionStr);
   }
 
   glutDisplayFunc([]() {
@@ -139,9 +140,9 @@ Demo::Demo(int viewport_width, int viewport_height) :
   glutMotionFunc([](int x, int y) {
     INSTANCES[glutGetWindow()]->HandleMouseDragEvent(x, y);
   });
-  glutMouseWheelFunc([](int button, int dir, int x, int y) {
-    INSTANCES[glutGetWindow()]->HandleMouseWheelEvent(dir);
-  });
+//  glutMouseWheelFunc([](int button, int dir, int x, int y) {
+//    INSTANCES[glutGetWindow()]->HandleMouseWheelEvent(dir);
+//  });
 
   glGenVertexArrays(1, &full_screen_quad_vao_);
   glBindVertexArray(full_screen_quad_vao_);

@@ -62,7 +62,7 @@ model definitions:
 #include "atmosphere/reference/model.h"
 
 #include <glad/glad.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 
 #include <array>
 #include <fstream>
@@ -364,9 +364,9 @@ provide a separate method to initialize it:
     if (!glutGet(GLUT_INIT_STATE)) {
       int argc = 0;
       char** argv = nullptr;
-      glutInitContextVersion(3, 3);
-      glutInitContextProfile(GLUT_CORE_PROFILE);
       glutInit(&argc, argv);
+      glutInitContextVersion(4, 1);
+      glutInitContextProfile(GLUT_CORE_PROFILE);
       glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
       glutInitWindowSize(kWidth, kHeight);
       glutCreateWindow("ModelTest");

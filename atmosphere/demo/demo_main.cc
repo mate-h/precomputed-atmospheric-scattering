@@ -36,16 +36,16 @@ application.
 #include "atmosphere/demo/demo.h"
 
 #include <glad/glad.h>
-#include <GL/freeglut.h>
+#include <GLUT/glut.h>
 
 #include <memory>
 
 using atmosphere::demo::Demo;
 
 int main(int argc, char** argv) {
-  glutInitContextVersion(3, 3);
-  glutInitContextProfile(GLUT_CORE_PROFILE);
   glutInit(&argc, argv);
+  glutInitContextVersion(4, 1);
+  glutInitContextProfile(GLUT_CORE_PROFILE);
   glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE);
   glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_CONTINUE_EXECUTION);
 
